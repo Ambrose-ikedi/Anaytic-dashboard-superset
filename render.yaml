@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: superset
+    env: docker
+    plan: free
+    autoDeploy: true
+    healthCheckPath: /health
+    envVars:
+      - key: SUPERSET_ENV
+        value: production
+      - key: SUPERSET_LOAD_EXAMPLES
+        value: "no"
+      - key: SUPERSET_SECRET_KEY
+        generateValue: true
