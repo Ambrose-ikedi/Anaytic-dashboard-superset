@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  superset:
+    image: apache/superset:latest
+    container_name: superset
+    restart: always
+    ports:
+      - "8088:8088"
+    environment:
+      SUPERSET_SECRET_KEY: "replace-this-with-a-strong-key"
+    volumes:
+      - ./superset_config.py:/app/pythonpath/superset_config.py
+      - ./dashboards:/app/dashboards
+    command: >
+      bash -c "
+      superset db upgrade &&
+      superset fab create-admin
+        --username admin
+        --firstname Admin
+        --lastname User
+        --email admin@admin.com
+        --password admin &&
+      superset init &&
+      superset import-dashboards -p /app/dashboards &&
+      superset run -h 0.0.0.0 -p 8088
+      "

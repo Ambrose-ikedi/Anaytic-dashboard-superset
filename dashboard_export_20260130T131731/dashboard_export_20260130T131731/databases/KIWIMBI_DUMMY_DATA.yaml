@@ -1,0 +1,17 @@
+database_name: KIWIMBI DUMMY DATA
+sqlalchemy_uri: gsheets://
+cache_timeout: null
+expose_in_sqllab: true
+allow_run_async: false
+allow_ctas: false
+allow_cvas: false
+allow_dml: false
+allow_file_upload: false
+extra:
+  allows_virtual_table_explore: true
+  engine_params:
+    catalog:
+      DUMMY DATA: https://docs.google.com/spreadsheets/d/1PakVqihxdWAomNUEOUYtL_36HEFv8rQD/edit?usp=sharing&ouid=118217569839896862746&rtpof=true&sd=true
+impersonate_user: true
+uuid: b6c8ada2-c9d8-4dab-aad8-3e2f09b5029a
+version: 1.0.0
